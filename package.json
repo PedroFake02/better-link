@@ -1,0 +1,47 @@
+{
+  "name": "better-link",
+  "version": "0.1.0",
+  "description": "Enhanced Next.js Link component with isActive functionality",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "bun build ./src/index.ts --outdir ./dist --format esm && tsc --emitDeclarationOnly --outDir dist",
+    "prepublishOnly": "bun run build",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "nextjs",
+    "link",
+    "isActive",
+    "navigation",
+    "react"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/better-link"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/better-link/issues"
+  },
+  "homepage": "https://github.com/yourusername/better-link#readme",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "next": "^15.3.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "typescript": "^5"
+  },
+  "peerDependencies": {
+    "next": ">=13.0.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  }
+}

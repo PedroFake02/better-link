@@ -1,0 +1,19 @@
+# Source files
+src/
+
+# Development files
+tsconfig.json
+.gitignore
+examples/
+
+# Build tools
+bun.lockb
+
+# IDE files
+.vscode/
+.idea/
+
+# Tests
+__tests__/
+*.test.ts
+*.test.tsx 
