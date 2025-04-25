@@ -2,14 +2,14 @@
   "compilerOptions": {
     // Enable latest features
     "lib": ["ESNext", "DOM"],
-    "target": "ESNext",
+    "target": "ES2020",
     "module": "ESNext",
     "moduleDetection": "force",
     "jsx": "react-jsx",
     "allowJs": true,
 
     // Module resolution
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "isolatedModules": true,
     "allowSyntheticDefaultImports": true,

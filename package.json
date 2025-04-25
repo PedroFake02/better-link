@@ -1,16 +1,20 @@
 {
   "name": "better-link",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "description": "Enhanced Next.js Link component with isActive functionality",
-  "module": "dist/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "type": "module",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "bun build ./src/index.ts --outdir ./dist --format esm && tsc --emitDeclarationOnly --outDir dist",
-    "prepublishOnly": "bun run build"
+    "build": "bun build ./src/index.ts --outdir ./dist --format esm --outfile index.mjs && bun build ./src/index.ts --outdir ./dist --format cjs --outfile index.js && tsc --emitDeclarationOnly --outDir dist",
+    "prepublishOnly": "bun run build",
+    "clean": "rm -rf dist",
+    "test": "echo \"No tests yet\"",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "lint": "eslint src --ext .ts,.tsx"
   },
   "keywords": [
     "nextjs",
@@ -23,18 +27,19 @@
     "next-link"
   ],
   "author": {
-    "name": "Patrick Jakobsen",
-    "url": "https://github.com/pallepadehat"
+    "name": "Your Name",
+    "email": "your.email@example.com",
+    "url": "https://github.com/yourusername"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pallepadehat/better-link"
+    "url": "https://github.com/yourusername/better-link"
   },
   "bugs": {
-    "url": "https://github.com/pallepadehat/better-link/issues"
+    "url": "https://github.com/yourusername/better-link/issues"
   },
-  "homepage": "https://github.com/pallepadehat/better-link#readme",
+  "homepage": "https://github.com/yourusername/better-link#readme",
   "devDependencies": {
     "@types/bun": "latest",
     "@types/react": "^19.1.2",
