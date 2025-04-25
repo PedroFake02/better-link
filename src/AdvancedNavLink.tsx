@@ -2,8 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { LinkProps } from "next/link";
-import dynamic from "next/dynamic";
 
 export interface AdvancedNavLinkProps<T = string>
   extends Omit<LinkProps, "href"> {
@@ -13,15 +13,6 @@ export interface AdvancedNavLinkProps<T = string>
     | React.ReactNode
     | ((props: { isActive: boolean }) => React.ReactNode);
 }
-
-// Dynamically import the client component with no SSR
-const ClientAdvancedNavLink = dynamic(
-  () =>
-    import("./ClientAdvancedNavLink").then((mod) => mod.ClientAdvancedNavLink),
-  {
-    ssr: false,
-  }
-);
 
 /**
  * AdvancedNavLink component that follows the pattern shown in the example
@@ -35,10 +26,26 @@ const ClientAdvancedNavLink = dynamic(
  * </AdvancedNavLink>
  * ```
  */
-export const AdvancedNavLink = <T extends string | number = string>(
-  props: AdvancedNavLinkProps<T>
-) => {
-  return <ClientAdvancedNavLink {...props} />;
+export const AdvancedNavLink = <T extends string | number = string>({
+  to,
+  key,
+  children,
+  ...props
+}: AdvancedNavLinkProps<T>): React.ReactElement => {
+  const pathname = usePathname();
+
+  // Determine if the link is active
+  const isActive = pathname === to || pathname.startsWith(to);
+
+  return (
+    <Link href={to} {...props}>
+      {typeof children === "function"
+        ? (children as (props: { isActive: boolean }) => React.ReactNode)({
+            isActive,
+          })
+        : children}
+    </Link>
+  );
 };
 
 export default AdvancedNavLink;

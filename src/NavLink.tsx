@@ -2,8 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { LinkProps } from "next/link";
-import dynamic from "next/dynamic";
 
 export interface NavLinkProps extends Omit<LinkProps, "href"> {
   href: string;
@@ -18,14 +18,6 @@ export interface NavLinkProps extends Omit<LinkProps, "href"> {
    */
   renderChildren?: (isActive: boolean) => React.ReactNode;
 }
-
-// Dynamically import the client component with no SSR
-const ClientNavLink = dynamic(
-  () => import("./ClientNavLink").then((mod) => mod.ClientNavLink),
-  {
-    ssr: false,
-  }
-);
 
 /**
  * NavLink component that extends Next.js Link with isActive functionality
@@ -43,8 +35,31 @@ const ClientNavLink = dynamic(
  * </NavLink>
  * ```
  */
-export const NavLink: React.FC<NavLinkProps> = (props) => {
-  return <ClientNavLink {...props} />;
+export const NavLink: React.FC<NavLinkProps> = ({
+  href,
+  children,
+  className = "",
+  activeClassName = "",
+  exact = false,
+  renderChildren,
+  ...props
+}) => {
+  const pathname = usePathname();
+
+  // Determine if the link is active
+  const isActive = exact ? pathname === href : pathname.startsWith(href);
+
+  // Combine classnames when active
+  const linkClassName =
+    isActive && activeClassName
+      ? `${className} ${activeClassName}`.trim()
+      : className;
+
+  return (
+    <Link href={href} className={linkClassName} {...props}>
+      {renderChildren ? renderChildren(isActive) : children}
+    </Link>
+  );
 };
 
 export default NavLink;
