@@ -10,11 +10,7 @@
   ],
   "scripts": {
     "build": "bun build ./src/index.ts --outdir ./dist --format esm && tsc --emitDeclarationOnly --outDir dist",
-    "prepublishOnly": "bun run build",
-    "clean": "rm -rf dist",
-    "test": "echo \"No tests yet\"",
-    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
-    "lint": "eslint src --ext .ts,.tsx"
+    "prepublishOnly": "bun run build"
   },
   "keywords": [
     "nextjs",
@@ -27,19 +23,18 @@
     "next-link"
   ],
   "author": {
-    "name": "Your Name",
-    "email": "your.email@example.com",
-    "url": "https://github.com/yourusername"
+    "name": "Patrick Jakobsen",
+    "url": "https://github.com/pallepadehat"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/better-link"
+    "url": "https://github.com/pallepadehat/better-link"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/better-link/issues"
+    "url": "https://github.com/pallepadehat/better-link/issues"
   },
-  "homepage": "https://github.com/yourusername/better-link#readme",
+  "homepage": "https://github.com/pallepadehat/better-link#readme",
   "devDependencies": {
     "@types/bun": "latest",
     "@types/react": "^19.1.2",
