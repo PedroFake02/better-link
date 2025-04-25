@@ -76,6 +76,46 @@ function Navigation() {
 
 ## 📚 Usage
 
+### Important: Client Components
+
+Since `better-link` uses the `usePathname` hook from Next.js, make sure to use it in client components:
+
+```jsx
+// navigation.tsx
+"use client"; // Add this directive
+
+import { NavLink } from "better-link";
+
+export function Navigation() {
+  return (
+    <nav>
+      <NavLink href="/" exact activeClassName="active">
+        Home
+      </NavLink>
+      <NavLink href="/about" activeClassName="active">
+        About
+      </NavLink>
+    </nav>
+  );
+}
+```
+
+Then import your Navigation component in your layout:
+
+```jsx
+// layout.tsx
+import { Navigation } from "./navigation";
+
+export default function Layout({ children }) {
+  return (
+    <div>
+      <Navigation />
+      <main>{children}</main>
+    </div>
+  );
+}
+```
+
 ### Basic NavLink
 
 The `NavLink` component extends Next.js's Link component with active state detection:
@@ -254,3 +294,61 @@ Distributed under the MIT License. See `LICENSE` for more information.
 - [React](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Bun](https://bun.sh/)
+
+## ❓ Troubleshooting
+
+### "Invalid Hook Call" Error
+
+If you encounter an error like this:
+
+```
+Invalid hook call. Hooks can only be called inside of the body of a function component.
+```
+
+Make sure your component is:
+
+1. Marked with the `"use client"` directive at the top of the file
+2. Used within a client component, not directly in a server component
+
+Example of correct usage:
+
+```tsx
+// navigation.tsx (client component)
+"use client";
+
+import { NavLink } from "better-link";
+
+export function Navigation() {
+  return (
+    <nav>
+      <NavLink href="/" exact activeClassName="active">
+        Home
+      </NavLink>
+      <NavLink href="/about" activeClassName="active">
+        About
+      </NavLink>
+    </nav>
+  );
+}
+
+// layout.tsx (server component)
+import { Navigation } from "./navigation";
+
+export default function RootLayout({ children }) {
+  return (
+    <html>
+      <body>
+        <Navigation />
+        <main>{children}</main>
+      </body>
+    </html>
+  );
+}
+```
+
+## 🌱 Upcoming Features
+
+- [ ] Support for pattern matching URLs
+- [ ] Active state based on query parameters
+- [ ] Animation helpers for transitions
+- [ ] Additional accessibility improvements
