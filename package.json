@@ -1,6 +1,6 @@
 {
   "name": "better-link",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Enhanced Next.js Link component with isActive functionality",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
